@@ -42,11 +42,11 @@ class JSONStorage:
             with open(self.filename, 'w') as f:
                 json.dump(data, f, indent=4)
             
-            print(f"✅ Data saved to '{self.filename}'")
+            print(f" Data saved to '{self.filename}'")
             return True
         
         except Exception as e:
-            print(f"❌ Error saving data: {e}")
+            print(f" Error saving data: {e}")
             return False
     
     def load_series(self):
@@ -57,7 +57,7 @@ class JSONStorage:
             list: List of Series objects, empty list if file doesn't exist
         """
         if not os.path.exists(self.filename):
-            print(f"📭 No saved data found. Starting fresh!")
+            print(f" No saved data found. Starting fresh!")
             return []
         
         try:
@@ -74,11 +74,11 @@ class JSONStorage:
                 series.episodes_watched = item.get('episodes_watched', 0)
                 series_list.append(series)
             
-            print(f"✅ Loaded {len(series_list)} series from '{self.filename}'")
+            print(f" Loaded {len(series_list)} series from '{self.filename}'")
             return series_list
         
         except Exception as e:
-            print(f"❌ Error loading data: {e}")
+            print(f" Error loading data: {e}")
             return []
     
     def file_exists(self):
