@@ -33,11 +33,11 @@ class Series:
             episodes (int): The number of episodes watched
         """
         if episodes < 0:
-            print("❌ Episodes cannot be negative!")
+            print("Episodes cannot be negative!")
             return False
         
         if episodes > self.total_episodes:
-            print(f"⚠️  Warning: You've watched more episodes than available!")
+            print(f"Warning: You've watched more episodes than available!")
             self.episodes_watched = episodes
             return True
         
@@ -51,9 +51,9 @@ class Series:
     def display_info(self):
         """Display information about the series"""
         progress = self.get_progress()
-        status = "✅ COMPLETED" if self.is_completed() else "⏳ IN PROGRESS"
+        status = "COMPLETED" if self.is_completed() else "IN PROGRESS"
         
-        print(f"\n📺 {self.name}")
+        print(f"\n{self.name}")
         print(f"   Genre: {self.genre}")
         print(f"   Episodes: {self.episodes_watched}/{self.total_episodes}")
         print(f"   Progress: {progress:.1f}% {status}")
