@@ -29,7 +29,7 @@ class SeriesManager:
         """
         # Check if series already exists
         if self.find_series(name):
-            print(f"⚠️  '{name}' already exists in your list!")
+            print(f"'{name}' already exists in your list!")
             return False
         
         new_series = Series(name, total_episodes, genre)
@@ -55,7 +55,7 @@ class SeriesManager:
     def view_all_series(self):
         """Display all series in the list"""
         if not self.series_list:
-            print("\n📭 Your series list is empty! Add a series to get started.")
+            print("\n Your series list is empty! Add a series to get started.")
             return
         
         print("\n" + "="*60)
@@ -85,7 +85,7 @@ class SeriesManager:
             return False
         
         if series.update_episodes_watched(episodes_watched):
-            print(f"✅ Updated '{name}': {episodes_watched}/{series.total_episodes} episodes watched")
+            print(f"Updated '{name}': {episodes_watched}/{series.total_episodes} episodes watched")
             self._save()
             return True
         
@@ -101,11 +101,11 @@ class SeriesManager:
         series = self.find_series(name)
         
         if not series:
-            print(f"❌ Series '{name}' not found!")
+            print(f" Series '{name}' not found!")
             return False
         
         self.series_list.remove(series)
-        print(f"✅ '{name}' has been deleted from your list.")
+        print(f" '{name}' has been deleted from your list.")
         self._save()
         return True
     
@@ -124,10 +124,10 @@ class SeriesManager:
                 results.append(series)
         
         if not results:
-            print(f"\n❌ No series found matching '{name}'")
+            print(f"\n No series found matching '{name}'")
             return
         
-        print(f"\n🔍 Found {len(results)} series matching '{name}':")
+        print(f"\n Found {len(results)} series matching '{name}':")
         for series in results:
             series.display_info()
     
