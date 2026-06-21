@@ -9,7 +9,7 @@ from ai_recommender import AIRecommender
 def display_menu():
     """Display the main menu"""
     print("\n" + "="*50)
-    print("📺 TV SERIES ASSISTANT 📺")
+    print(" TV SERIES ASSISTANT ")
     print("="*50)
     print("1. Add a new series")
     print("2. View all series")
@@ -49,11 +49,11 @@ def main():
         elif choice == '8':
             view_statistics(manager)
         elif choice == '7':
-            print("\n👋 Thanks for using TV Series Assistant! Goodbye!")
-            print("💾 Your data has been saved automatically.")
+            print("\n Thanks for using TV Series Assistant! Goodbye!")
+            print(" Your data has been saved automatically.")
             break
         else:
-            print("❌ Invalid choice. Please try again.")
+            print("Invalid choice. Please try again.")
 
 def add_series(manager):
     """Add a new series to the manager"""
@@ -61,23 +61,23 @@ def add_series(manager):
     name = input("Enter series name: ").strip()
     
     if not name:
-        print("❌ Series name cannot be empty!")
+        print("Series name cannot be empty!")
         return
     
     total_episodes = input("Enter total episodes: ").strip()
     try:
         total_episodes = int(total_episodes)
         if total_episodes <= 0:
-            print("❌ Total episodes must be positive!")
+            print("Total episodes must be positive!")
             return
     except ValueError:
-        print("❌ Please enter a valid number!")
+        print("Please enter a valid number!")
         return
     
     genre = input("Enter genre (optional): ").strip() or "Unknown"
     
     manager.add_series(name, total_episodes, genre)
-    print(f"✅ '{name}' added successfully!")
+    print(f"'{name}' added successfully!")
 
 def update_series(manager):
     """Update episodes watched for a series"""
@@ -88,10 +88,10 @@ def update_series(manager):
     try:
         episodes_watched = int(episodes_watched)
         if episodes_watched < 0:
-            print("❌ Episodes watched cannot be negative!")
+            print("Episodes watched cannot be negative!")
             return
     except ValueError:
-        print("❌ Please enter a valid number!")
+        print("Please enter a valid number!")
         return
     
     manager.update_episodes(name, episodes_watched)
@@ -114,10 +114,10 @@ def view_statistics(manager):
     stats = manager.get_statistics()
     
     if not stats:
-        print("❌ No series in your collection yet!")
+        print("No series in your collection yet!")
         return
     
-    print(f"📊 COLLECTION STATISTICS")
+    print(f"COLLECTION STATISTICS")
     print(f"   Total Series: {stats['total_series']}")
     print(f"   Completed: {stats['completed_series']}")
     print(f"   In Progress: {stats['total_series'] - stats['completed_series']}")
@@ -128,16 +128,16 @@ def view_statistics(manager):
 def ai_recommendations(ai):
     """Get AI-powered series recommendations"""
     print("\n--- AI Recommendations ---")
-    print("🤖 Analyzing your watching habits...")
+    print("Analyzing your watching habits...")
     count = input("How many recommendations would you like? (default: 3): ").strip()
     
     try:
         count = int(count) if count else 3
         if count <= 0:
-            print("❌ Please enter a positive number!")
+            print("Please enter a positive number!")
             return
     except ValueError:
-        print("❌ Please enter a valid number!")
+        print("Please enter a valid number!")
         return
     
     ai.display_recommendations(count)
