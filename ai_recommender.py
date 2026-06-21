@@ -162,17 +162,17 @@ class AIRecommender:
         recommendations = self.get_recommendations(count)
         
         if not recommendations:
-            print("❌ No recommendations available at this time.")
+            print(" No recommendations available at this time.")
             return
         
         print("\n" + "="*60)
-        print("🤖 AI RECOMMENDATIONS FOR YOU")
+        print(" AI RECOMMENDATIONS FOR YOU")
         print("="*60)
         
         for i, (name, episodes, description) in enumerate(recommendations, 1):
             print(f"\n{i}. {name}")
-            print(f"   📺 Episodes: {episodes}")
-            print(f"   📝 {description}")
+            print(f" Episodes: {episodes}")
+            print(f" {description}")
         
         print("\n" + "="*60)
     
