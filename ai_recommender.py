@@ -1,12 +1,7 @@
-"""
-AI Recommendations module for TV Series Assistant
-Provides intelligent series recommendations based on watched series
-"""
 
 class AIRecommender:
-    """AI-powered series recommender"""
     
-    # Database of popular series by genre
+    #Database of popular series by genre
     SERIES_DATABASE = {
         'Crime Drama': [
             ('Breaking Bad', 62, 'A chemistry teacher turned methamphetamine cook'),
